@@ -10,7 +10,7 @@ app.set('views', __dirname + '/views');
 app.use("/", express.static(__dirname + '/public'));
 
 
-var db = pgp('postgres://silverRectangle@localhost:5432/heroku_node');
+var db = pgp(process.env.DATABASE_URL) || ('postgres://silverRectangle@localhost:5432/heroku_node');
 
 app.get('/', function(req, res) {
     db.any('SELECT * FROM messages').then(function(data) {
