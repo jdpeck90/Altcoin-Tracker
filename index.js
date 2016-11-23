@@ -10,7 +10,7 @@ app.set('views', __dirname + '/views');
 app.use("/", express.static(__dirname + '/public'));
 
 
-var db = pgp('postgres://Jared@localhost:5432/heroku_node');
+var db = pgp('postgres://silverRectangle@localhost:5432/heroku_node');
 
 app.get('/', function(req, res) {
     db.any('SELECT * FROM messages').then(function(data) {
@@ -21,7 +21,9 @@ app.get('/', function(req, res) {
     });
 });
 
+var port = process.env.PORT || 3000;
 
 app.listen(3000, function() {
   console.log('Node app is running on port 3000');
 });
+
