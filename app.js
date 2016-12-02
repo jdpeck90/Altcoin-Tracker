@@ -83,13 +83,23 @@ app.post('/signup', function(req, res){
   var data = req.body;
   bcrypt.hash(data.password, 10, function(err, hash){
     db.none(
-      "INSERT INTO users (fname, lname, email, password_digest, follow_coin) VALUES ($1, $2, $3, $4, $5)",
+      "INSERT INTO users (fname, lname, email, password_digest,follow_coin) VALUES ($1, $2, $3, $4, $5)",
       [data.fname, data.lname, data.email, hash, data.follow_coin]
     ).then(function(){
-      res.redirect('/');
+      res.redirect('/login');
     })
   });
 })
+
+app.post('/signup', function(req, res){
+  var data = req.body;
+   db.one(
+      "INSERT INTO coins (follow_coin) VALUES ($1)",
+      [data.follow_coin]
+    ).then(function(){
+      res.redirect('/login');
+    })
+  });
 
 app.get('/login',function(req,res){
   res.render('signup/login')
@@ -97,7 +107,6 @@ app.get('/login',function(req,res){
 
 app.post('/login', function(req, res){
   var data = req.body;
-  console.log(req.session,'req')
   db.one(
     "SELECT * FROM users WHERE email = $1",
     [data.email]
@@ -135,7 +144,12 @@ app.put('/dashboard/:id',function(req, res){
 });
 
 app.delete('/dashboard/:id',function(req, res){
-  id = req.params.id
-  db.none("DELETE FROM users WHERE id=$1", [id])
-  res.render('/dashboard/'+id)
+
+  var id = req.params.id
+  console.log(id,'id')
+  db.none("DELETE FROM users WHERE id=$1", [req.params.id])
+  .then(function(){
+    res.redirect('/')
+  })
+
 });

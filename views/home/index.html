@@ -26,8 +26,6 @@
   <div class="nav-wrapper">
   <a href="#" class="brand-logo">AltCoin Tracker</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="#" class="navlist">Alerts</a></li>
-      <li><a href="#" class="navlist">Coins</a></li>
       <li><a href="/login" class="navlist">Log In</a></li>
       <li><a href="/signup" class="navlist">Sign Up</a></li>
     </ul>
@@ -72,7 +70,7 @@
   <div id="priceTicker" class="altDisplay" data-coin="{{.}}">Price
   <span class="categoryNote">(USD)</span></div>
   <div id="volumeTicker" class="altDisplay">Volume
-  <span class="categoryNote">(Total coins in market)</span></div>
+  <span class="categoryNote">(Units Traded in 24hrs)</span></div>
   <div id="changeTicker" class="altDisplay">Change
   <span class="categoryNote">(in 24Hours)</span></div>
 </div>
@@ -85,9 +83,8 @@
   <div class="nav-wrapper">
   <a href="/home" class="brand-logo">AltCoin Tracker</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="#" class="navlist">Alerts</a></li>
-      <li><a href="#" class="navlist">Coins</a></li>
-      <li><a href="/dashboard/{{id}}" class="navlist">My Dashboard</a></li>
+<!--       <li><a href="#" class="navlist">Alerts</a></li>
+ -->      <li><a href="/dashboard/{{id}}" class="navlist">My Dashboard</a></li>
       <li><a href="/login" class="navlist">Log In</a></li>
       <li><a href="/signup" class="navlist">Sign Up</a></li>
     </ul>
@@ -96,10 +93,9 @@
 
 </header>
 
-<h1>Welcome to your account {{fname}} {{lname}}{{id}}!</h1>
+<h1>Welcome to your account {{fname}} {{lname}}!</h1>
 {{/logged_in}}
   <div id="bitChart"></div>
-
 
 {{#logged_in}}
 {{#follow_coin}}
@@ -135,12 +131,13 @@
   <div id="priceTicker" class="altDisplay" data-coin="{{.}}">Price
   <span class="categoryNote">(USD)</span></div>
   <div id="volumeTicker" class="altDisplay">Volume
-  <span class="categoryNote">(Total coins in market)</span></div>
+  <span class="categoryNote">(Units traded in 24hrs)</span></div>
   <div id="changeTicker" class="altDisplay">Change
   <span class="categoryNote">(in 24Hours)</span></div>
 </div>
 {{/follow_coin}}
 {{/logged_in}}
+
 
 
 

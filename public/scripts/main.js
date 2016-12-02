@@ -64,6 +64,12 @@ getCoinData()
 
 // });
 // var altSearchValue =
+
+var deleteUser = function(){
+  console.log('works')
+  alert('You have deleted you account');
+}
+
 function makeCallOut(searchValue){
     $.ajax({
       url: 'https://api.cryptonator.com/api/ticker/'+searchValue
@@ -154,10 +160,10 @@ function displayStatusOut(rawData) {
     var $displayGroup = $('div#bitTitle')[0]
 
     var $h2Base = $('<h2>'+base+'</h2>')
-    var $displayPrice = $('<h2>'+price+'</h2>')
+    var $displayPrice = $('<h2>'+'$'+price+'</h2>')
     console.log($displayPrice,'displayPrice')
     var $displayVolume = $('<h2>'+volume+'</h2>')
-    var $displayChange = $('<h2>'+change+'</h2>')
+    var $displayChange = $('<h2>'+change+'%'+'</h2>')
 
 
     $($displayGroup).append($h2Base)

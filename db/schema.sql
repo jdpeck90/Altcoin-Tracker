@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS coins;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
@@ -10,7 +11,7 @@ CREATE TABLE users (
 );
 
 
-CREATE TABLE alerts (
+CREATE TABLE coins (
   id SERIAL PRIMARY KEY,
-  alerts INTEGER REFERENCES users(id)
-)
+  follow_coin text ARRAY
+  );
