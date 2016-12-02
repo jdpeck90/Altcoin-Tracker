@@ -122,7 +122,7 @@ function displayStatusIn(rawData) {
 
 
     $($displayGroup).append($h2Base)
-    $($priceTicker).append($displayPrice)
+    $($priceTicker).append('$'+$displayPrice)
     $($volumeTicker).append($displayVolume)
     $($changeTicker).append($displayChange)
 
