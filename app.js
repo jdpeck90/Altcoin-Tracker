@@ -7,8 +7,7 @@ const session = require('express-session');
 const bcrypt = require('bcryptjs');
 const methodOverride = require('method-override');
 
-var db = pgp('postgres://silverRectangle@localhost:5432/bitcoin_users');
-
+var db = pgp(process.env.DATABASE_URL || 'postgres://silverRectangle@127.0.0.1.:5432/bitcoin_users');
 
 app.engine('html', mustacheExpress());
 app.set('view engine','html');
