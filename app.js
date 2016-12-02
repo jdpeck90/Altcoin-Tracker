@@ -25,7 +25,9 @@ app.use(session({
   cookie: { secure: false }
 }))
 
-app.listen(3000, function(){
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, function(){
   console.log('alive on 3k, yo.');
 });
 

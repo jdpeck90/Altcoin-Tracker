@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
+  "engines": {
+    "node": "6.9.1"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
@@ -17,4 +21,5 @@
     "mustache-express": "^1.2.4",
     "pg-promise": "^5.4.4"
   }
+
 }
