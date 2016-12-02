@@ -1,0 +1,196 @@
+/*top nav*/
+
+.navlist{
+  font-size: 64px;
+
+}
+
+nav ul li {
+    transition: background-color .3s;
+    float: left;
+    padding: 110px 55px 25px 25px;
+}
+
+a.brand-logo{
+    font-size: 8.1rem;
+    padding: 110px 0px 40px 80px;
+}
+
+
+/*BODY*/
+body{
+ background-color: lightgrey;
+}
+
+#parentwrap { vertical-align:top; }
+
+/*ul.cols2 {
+    columns: 3;
+    width: 2400px;
+    list-style-type: none;
+    margin-left: 500px;
+    font-size: 70px
+  }*/
+
+nav{
+    height: 300px;
+    background-color: #66f;
+}
+
+.form-control{
+      background-color: rgb(250, 255, 189);
+    background-image: none;
+    color: rgb(0, 0, 0);
+}
+
+.left-login {
+  display: inline-block;
+  float: left;
+}
+
+.right-login {
+  display: inline-block;
+  margin: 0 0 0 25px;
+}
+
+.categoryNote {
+  font-size: 62px;
+}
+
+.follow-coins {
+  width: 50%;
+  float: left;
+  color:red;
+}
+
+li{
+  display: inline;
+}
+.signup-left {
+    margin-top: 250px;
+    float: left;
+    width: 800px;
+}
+
+.loginDiv {
+  display: inline-flex;
+}
+
+.loginTitle {
+  font-size: 46px;
+}
+
+.loginbtn {
+  margin-top: 40px;
+  margin-left: 20px;
+}
+
+.btn-create {
+  padding: 45px 470px 105px 470px;
+   margin: 40px 0 20px 0;
+   font-size:
+}
+.input-coins{
+    font-size: 70px;
+    text-align: center;
+}
+
+[type="checkbox"]+label {
+    padding-left: 24px;
+    padding-right: 55px;
+  }
+/*ul li{
+    float: left;
+    width: 50%;//helps to determine number of columns, for instance 33.3% displays 3 columns
+}*/
+
+
+ul{
+    list-style-type: disc;
+}
+
+input[type=checkbox] {
+    transform: scale(4);
+    -ms-transform: scale(4);
+    -webkit-transform: scale(4);
+    padding: 5px;
+}
+.altDisplay{
+  height: 400px;
+  width: 1000px;
+  color: #66f;
+  padding: 40px 5px 5px 5px;
+  margin: 500px 5px 10px 130px;
+  display: inline-block;
+  text-align: center;
+  font-size: 80px;
+  border-radius: 80px;
+  background-color: lightgrey;
+  border: 7px solid grey;
+}
+
+#ticker p {
+      position:absolute;
+      text-align: center;
+      width: 12%;
+}
+
+.displayGroup h2 {
+      position:absolute;
+      text-align: center;
+      width: 62%;
+      font-size: 140px;
+}
+
+h1 {
+
+      text-align: center;
+      width: 100%;
+      font-size: 140px;
+}
+
+.altDisplay h2 {
+      position:absolute;
+      text-align: center;
+      width: 16%;
+      font-size: 64px;
+      margin-top: 70px;
+      margin-left: 60px;
+
+}
+
+header{
+  width: 100%;
+  height: 300px;
+  background-color: #66f;
+}
+
+.displayGroup {
+  width: 3600px;
+  height: 1450px;
+  background-color: white;
+  margin: 0 auto 40px auto;
+  border-right: 20px solid #66f;
+  border-left: 20px solid #66f;
+  border-bottom: 20px solid #66f;
+}
+
+.formGroup {
+      width: 500px;
+
+}
+
+/*dropdown button*/
+a.dropdown-button.btn {
+    padding: 50px 145px 80px 145px;
+  }
+
+
+
+/*Sign Up HTML Page*/
+
+.container{
+    background-color: white;
+    border: 10px solid #66f;
+    padding: 50px;
+  }

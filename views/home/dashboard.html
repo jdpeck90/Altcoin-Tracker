@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>altCoin Tracker</title>
+  <script src="/scripts/jquery.js"></script>
+<script src="/scripts/main.js"></script>
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+<!-- Compiled and minified CSS -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+<!-- My CSS Page -->
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+</head>
+<body>
+ <header>
+<nav>
+  <div class="nav-wrapper">
+  <a href="/" class="brand-logo">AltCoin Tracker</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="/signup" class="navlist">Alerts</a></li>
+      <li><a href="/signup" class="navlist">Coins</a></li>
+      <li><a href="/dashboard/{{id}}" class="navlist">My Dashboard</a></li>
+      <li><a href="/login" class="navlist">Log In</a></li>
+      <li><a href="/signup" class="navlist">Sign Up</a></li>
+    </ul>
+  </div>
+</nav>
+</header>
+
+
+ <h1>Change your info {{id}}</h1>
+<div class="container">
+
+  <div class="border-container">
+    <div class="col-lg-6 center-block">
+     <div class="well bs-component">
+        <form method="POST" action="/dashboard/{{id}}?_method=PUT">
+       <fieldset>
+      <legend>¯\_(ツ)_/¯</legend>
+        <div class="">
+
+          <label for="fname">First Name</label>
+        <div class="">
+
+          <input name="fname" id="fname" value="{{fname}}">
+
+        </div>
+        </div>
+        <div class="form-group">
+          <label for="lname" class="">Last Name</label>
+        <div class="col-lg-10">
+          <input name="lname" class="form-control" id="lname" value="{{lname}}">
+        </div>
+      </div>
+      <div class="form-group">
+      <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+        <div class="col-lg-10">
+        <input name="email" class="" id="email" value="{{email}}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password_digest" class="col-lg-2 control-label">Password</label>
+        <div class="col-lg-10">
+          <input name="password_digest" class="form-control" id="inputPassword" placeholder="Password">
+        </div>
+        </div>
+        <div class="signup_coins">
+                <h2 class="input-coins">Choose AltCoins to Follow</h2>
+                <div class="form-group">
+                  <label for="inputCoins">
+                <div class="col s1 follow-coins">
+                <input type="checkbox" name="follow_coin" value="btc_btn" id="btc_btn" />
+                  <label for="btc_btn">Bitcoin(BTC)</label>
+                <input type="checkbox" name="follow_coin" value="ltc_btn" id="ltc_btn" />
+                  <label for="ltc_btn">Litecoin(LTC)</label>
+                <input type="checkbox" name="follow_coin" value="doge_btn" id="doge_btn" />
+                  <label for="doge_btn">Dogecoin(DOGE)</label>
+                <input type="checkbox" name="follow_coin" value="eth_btn" id="eth_btn" />
+                  <label for="eth_btn">Ethereum(ETH)</label>
+                <input type="checkbox" name="follow_coin" value="dash_btn" id="dash_btn" />
+                  <label for="dash_btn">Dash(DASH)</label>
+                <input type="checkbox" name="follow_coin" value="xmr_btn" id="xmr_btn" />
+                  <label for="xmr_btn">Monero(XMR)</label>
+                <input type="checkbox" name="follow_coin" value="neu_btn" id="neu_btn" />
+                  <label for="neu_btn">Neucoin(NEU)</label>
+                <input type="checkbox" name="follow_coin" value="sys_btn" id="sys_btn" />
+                  <label for="sys_btn">Syscoin(SYS)</label>
+                <input type="checkbox" name="follow_coin" value="gld_btn" id="gld_btn" />
+                  <label for="gld_btn">GoldCoin(GLD)</label>
+                <input type="checkbox" name="follow_coin" value="sfo_btn" id="sfo_btn" />
+                  <label for="btc_btn">sharkfund0(SFO)</label>
+                </div>
+                <div class="col s1 follow-coins">
+                <input type="checkbox" name="follow_coin" value="zec_btn" id="zec_btn" />
+                  <label for="zec_btn">Zcash(ZEC)</label>
+                <input type="checkbox" name="follow_coin" value="ppc_btn" id="ppc_btn" />
+                  <label for="ppc_btn">Peercoin(PPC)</label>
+                <input type="checkbox" name="follow_coin" value="dgd_btn" id="dgd_btn" />
+                  <label for="dgd_btn">DigixDAO(DGD)</label>
+                <input type="checkbox" name="follow_coin" value="omni_btn" id="omni_btn" />
+                  <label for="omni_btn">Mastercoin(OMNI)</label>
+                <input type="checkbox" name="follow_coin" value="jin_btn" id="jin_btn" />
+                  <label for="jin_btn">Jin(JIN)</label>
+                <input type="checkbox" name="follow_coin" value="rep_btn" id="rep_btn" />
+                  <label for="rep_btn">Augur(REP)</label>
+                <input type="checkbox" name="follow_coin" value="btcd_btn" id="btcd_btn" />
+                  <label for="btcd_btn">BitcoinDark(BTCD)</label>
+                <input type="checkbox" name="follow_coin" value="unity_btn" id="unity_btn" />
+                  <label for="unity_btn">SuperNET(UNITY)</label>
+                <input type="checkbox" name="follow_coin" value="xcp_btn" id="xcp_btn" />
+                  <label for="xcp_btn">CounterParty(XCP)</label>
+                </div>
+                  </label>
+                </div>
+                </div>
+         <button type="submit" class="btn btn-create btn-primary">Save</button>
+
+         <form method="POST" action="/users/{{id}}?_method=DELETE">
+  <button>DELETE</button>
+</form>
+      </fieldset>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

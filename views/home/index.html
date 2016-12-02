@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>BitCoin Ticker</title>
+  <script src="/scripts/jquery.js"></script>
+<script src="/scripts/main.js"></script>
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+<!-- Compiled and minified CSS -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+<!-- My CSS Page -->
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+</head>
+<body>
+
+
+{{^logged_in}}
+
+<header>
+<nav>
+  <div class="nav-wrapper">
+  <a href="#" class="brand-logo">AltCoin Tracker</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="#" class="navlist">Alerts</a></li>
+      <li><a href="#" class="navlist">Coins</a></li>
+      <li><a href="/login" class="navlist">Log In</a></li>
+      <li><a href="/signup" class="navlist">Sign Up</a></li>
+    </ul>
+  </div>
+</nav>
+
+</header>
+
+
+<div class="displayGroup" data-coin="{{.}}">
+<a class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='altcoin-dropdown'>Choose an Altcoin!</a>
+  <!-- Dropdown Structure -->
+  <ul id='altcoin-dropdown' class='dropdown-content'>
+    <li><a class="dropDownChoice" data-searchValue="btc-usd">Bitcoin(BTC)</a></li>
+    <li><a class="dropDownChoice" data-searchValue="ltc-usd">Litecoin(LTC)</a></li>
+    <li><a class="dropDownChoice" data-searchValue="doge-usd">Dogecoin(DOGE)</a></li>
+    <li><a class="dropDownChoice" data-searchValue="eth-usd">Ethereum(ETH)</a></li>
+    <li><a class="dropDownChoice" data-searchValue="dash-usd">Dash(DASH)</a></li>
+    <li><a class="dropDownChoice" data-searchValue="xmr-usd">Monero(XMR)</a></li>
+    <li><a class="dropDownChoice" data-searchValue="neu-usd">Neucoin (NEU)</a></li>
+    <li><a class="dropDownChoice" data-searchValue="sys-usd">Syscoin(SYS)</a></li>
+    <li><a class="dropDownChoice" data-searchValue="gld-usd">GoldCoin(GLD)</a></li>
+    <li><a class="dropDownChoice" data-searchValue="steem-usd">Steem (STEEM)</a></li>
+    <li><a class="dropDownChoice" data-searchValue="zec-usd">Zcash(ZEC)</a></li>
+    <li><a class="dropDownChoice" data-searchValue="ppc-usd">Peercoin (PPC)</a></li>
+    <li><a class="dropDownChoice" data-searchValue="dgd-usd">DigixDAO(DGD)</a></li>
+    <li><a class="dropDownChoice" data-searchValue="jin-usd">Jin(JIN)</a></li>
+    <li><a class="dropDownChoice" data-searchValue="omni-usd">Mastercoin(OMNI)</a></li>
+    <li><a class="dropDownChoice" data-searchValue="rep-usd">Augur(REP)</a></li>
+    <li><a class="dropDownChoice" data-searchValue="btcd-usd">BitcoinDark(BTCD)</a></li>
+    <li><a class="dropDownChoice" data-searchValue="unity-usd">SuperNET(UNITY)</a></li>
+    <li><a class="dropDownChoice" data-searchValue="xcp-usd">CounterParty(XCP)</a></li>
+  </ul>
+<div class="dropdown">
+  <div class="dropdown-content">
+
+  </div>
+</div>
+
+
+<div id="bitTitle"></div>
+  <div id="priceTicker" class="altDisplay" data-coin="{{.}}">Price
+  <span class="categoryNote">(USD)</span></div>
+  <div id="volumeTicker" class="altDisplay">Volume
+  <span class="categoryNote">(Total coins in market)</span></div>
+  <div id="changeTicker" class="altDisplay">Change
+  <span class="categoryNote">(in 24Hours)</span></div>
+</div>
+
+{{/logged_in}}
+
+{{#logged_in}}
+<header>
+<nav>
+  <div class="nav-wrapper">
+  <a href="/home" class="brand-logo">AltCoin Tracker</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="#" class="navlist">Alerts</a></li>
+      <li><a href="#" class="navlist">Coins</a></li>
+      <li><a href="/dashboard/{{id}}" class="navlist">My Dashboard</a></li>
+      <li><a href="/login" class="navlist">Log In</a></li>
+      <li><a href="/signup" class="navlist">Sign Up</a></li>
+    </ul>
+  </div>
+</nav>
+
+</header>
+
+<h1>Welcome to your account {{fname}} {{lname}}{{id}}!</h1>
+{{/logged_in}}
+  <div id="bitChart"></div>
+
+
+{{#logged_in}}
+{{#follow_coin}}
+
+
+<div class="displayGroup" data-coin="{{.}}">
+<div class="dropdown">
+  <div class="dropdown-content">
+    <a class="dropDownChoice" data-searchValue="btc-usd">Bitcoin(BTC)</a>
+    <a class="dropDownChoice" data-searchValue="ltc-usd">Litecoin(LTC)</a>
+    <a class="dropDownChoice" data-searchValue="doge-usd">Dogecoin(DOGE)</a>
+    <a class="dropDownChoice" data-searchValue="eth-usd">Ethereum(ETH)</a>
+    <a class="dropDownChoice" data-searchValue="dash-usd">Dash(DASH)</a>
+    <a class="dropDownChoice" data-searchValue="xmr-usd">Monero(XMR)</a>
+    <a class="dropDownChoice" data-searchValue="neu-usd">Neucoin (NEU)</a>
+    <a class="dropDownChoice" data-searchValue="sys-usd">Syscoin(SYS)</a>
+    <a class="dropDownChoice" data-searchValue="gld-usd">GoldCoin(GLD)</a>
+    <a class="dropDownChoice" data-searchValue="sfo-usd">sharkfund0(SFO)</a>
+    <a class="dropDownChoice" data-searchValue="zec-usd">Zcash(ZEC)</a>
+    <a class="dropDownChoice" data-searchValue="ppc-usd">Peercoin (PPC)</a>
+    <a class="dropDownChoice" data-searchValue="dgd-usd">DigixDAO(DGD)</a>
+    <a class="dropDownChoice" data-searchValue="jin-usd">Jin(JIN)</a>
+    <a class="dropDownChoice" data-searchValue="omni-usd">Mastercoin(OMNI)</a>
+    <a class="dropDownChoice" data-searchValue="rep-usd">Augur(REP)</a>
+    <a class="dropDownChoice" data-searchValue="btcd-usd">BitcoinDark(BTCD)</a>
+    <a class="dropDownChoice" data-searchValue="unity-usd">SuperNET(UNITY)</a>
+    <a class="dropDownChoice" data-searchValue="xcp-usd">CounterParty(XCP)</a>
+  </div>
+</div>
+
+
+<div id="bitTitle"></div>
+  <div id="priceTicker" class="altDisplay" data-coin="{{.}}">Price
+  <span class="categoryNote">(USD)</span></div>
+  <div id="volumeTicker" class="altDisplay">Volume
+  <span class="categoryNote">(Total coins in market)</span></div>
+  <div id="changeTicker" class="altDisplay">Change
+  <span class="categoryNote">(in 24Hours)</span></div>
+</div>
+{{/follow_coin}}
+{{/logged_in}}
+
+
+
+</body>
+</html>
