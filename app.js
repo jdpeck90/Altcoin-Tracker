@@ -55,6 +55,22 @@ app.get("/", function(req,res){
     res.render('home/index', data);
 })
 
+app.get("/logout/:id", function(req,res){
+  var logged_in, id;
+
+  if(req.session.user){
+      logged_in = false;
+      id = req.session.user.id;
+  }
+
+    var data = {
+      "logged_in": logged_in,
+      "id": id
+    }
+
+    res.render('home/index', data);
+})
+
 app.get("/signup", function(req, res){
   res.render('signup/signup')
 });
