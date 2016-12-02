@@ -7,7 +7,7 @@ const session = require('express-session');
 const bcrypt = require('bcryptjs');
 const methodOverride = require('method-override');
 
-var db = pgp(process.env.DATABASE_URL || 'postgres://silverRectangle@127.0.0.1.:5432/bitcoin_users');
+var db = pgp(process.env.DATABASE_URL || 'postgres://silverRectangle@localhost:5432/bitcoin_users');
 
 app.engine('html', mustacheExpress());
 app.set('view engine','html');
@@ -83,11 +83,26 @@ app.get("/signup", function(req, res){
 app.post('/signup', function(req, res){
   var data = req.body;
   bcrypt.hash(data.password, 10, function(err, hash){
-    db.none(
-      "INSERT INTO users (fname, lname, email, password_digest,follow_coin) VALUES ($1, $2, $3, $4, $5)",
+    db.one(
+      // "INSERT INTO users (fname, lname, email, password_digest) VALUES ($1, $2, $3, $4); INSERT INTO coins () VALUES ($5)",
+      "INSERT INTO users (fname, lname, email, password_digest, follow_coin) VALUES ($1, $2, $3, $4, $5); SELECT currval('users_id_seq')",
       [data.fname, data.lname, data.email, hash, data.follow_coin]
-    ).then(function(){
-      res.redirect('/login');
+    ).then(function(qres){
+      console.log('qres:' + qres);
+      var userId = qres.currval;
+      var coins = data.follow_coin;
+      var query = coins.map(function(coin){
+        return(
+          pgp.as.format("INSERT INTO coins (name, user_id) VALUES ($1, $2);",
+            [coin, userId])
+          );
+      }).join('');
+      console.log('query:');
+      console.log(query);
+      db.none(query)
+        .then(function(){
+            res.redirect('/login');
+        })
     })
   });
 })

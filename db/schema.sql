@@ -13,5 +13,6 @@ CREATE TABLE users (
 
 CREATE TABLE coins (
   id SERIAL PRIMARY KEY,
-  follow_coin text ARRAY
+  name VARCHAR (225),
+  user_id INTEGER REFERENCES users(id)
   );
