@@ -22,7 +22,7 @@ Altcoin is a Javascript powered, offline-storange, and login enabled alternative
 ####Tip on how this software could help you become a altcoin users
 ~This text you see here is *actually* written in Markdown! To get a feel for Markdown's syntax, type some text into the left window and watch the results in the right.~
         
-        ### Tech
+### Tech
 
 Altcoin Tracker uses a number of open source projects to function properly:
 - [Express] - node.js network app framework
@@ -34,8 +34,9 @@ Altcoin Tracker uses a number of open source projects to function properly:
 - [Method-override] - This module allows us to use HTTP verbs like DELETE & PUT in places where the client doesn’t support it.
 - [JQuery] - DOM manipulation, API calls, & CSS animations. 
 Ajax this is part of the JQuery library and is used to make API calls. 
-Javascript is the primary language I used to write this program. 
+Javascript is the primary language I used to write this program.
+- [node.js] - evented I/O for the backend   
 - [D3.js] - Graph to come  
-- [materialize] - ui boilerplate
-- [node.js] - evented I/O for the backend 
-- 
+- [materialize] - ui boilerplate  
+  
+
