@@ -1,14 +1,19 @@
+
+/////////------SET UP VARIABLES------/////////
 const exp = require('express');
 const app = exp();
-const pgp = require('pg-promise')();
 const mustacheExpress = require('mustache-express');
 const bodyParser = require("body-parser");
 const session = require('express-session');
 const bcrypt = require('bcryptjs');
 const methodOverride = require('method-override');
 
+/////////------DATABASE------/////////
+const pgp = require('pg-promise')();
 var db = pgp(process.env.DATABASE_URL || 'postgres://silverRectangle@localhost:5432/bitcoin_users');
 
+
+/////////-----MUSTACHE/METHOD OVERRIDE/BODY PARSER------/////////
 app.engine('html', mustacheExpress());
 app.set('view engine','html');
 app.set('views',__dirname + '/views');
@@ -17,6 +22,8 @@ app.use(methodOverride('_method')) //method override
 app.use(bodyParser.urlencoded({ extended: false })); //body parser
 app.use(bodyParser.json()); //body parser
 
+
+/////////------INITIALIZE SESSION------/////////
 app.use(session({
   secret: 'theTruthIsOutThere51',
   resave: false,
@@ -24,6 +31,7 @@ app.use(session({
   cookie: { secure: false }
 }))
 
+/////////------START PORT------/////////
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, function(){
@@ -31,6 +39,8 @@ app.listen(PORT, function(){
 });
 
 
+
+/////////------GET POST PUT DELETER------/////////
 app.get("/", function(req,res){
   var logged_in, email, fname, lname, follow_coin, id;
 
@@ -76,35 +86,13 @@ app.get("/signup", function(req, res){
 });
 
 
-
-
-
-// //show the view to make a new user.
-// app.get('/create',function(req,res){
-//   res.render('create')
-// })
-
-// //create a new user.
-// app.post('/users',function(req, res){
-//   user = req.body
-
-//   db.none('INSERT INTO users (name,email,password) VALUES ($1,$2,$3)',
-//     [user.name,user.email,user.password])
-
-//   res.render('index')
-// });
-
-///////Sign Up Page//////////////
-
 app.post('/signup', function(req, res){
   var data = req.body;
   bcrypt.hash(data.password, 10, function(err, hash){
     db.one(
-      // "INSERT INTO users (fname, lname, email, password_digest) VALUES ($1, $2, $3, $4); INSERT INTO coins () VALUES ($5)",
       "INSERT INTO users (fname, lname, email, password_digest, follow_coin) VALUES ($1, $2, $3, $4, $5); SELECT currval('users_id_seq')",
       [data.fname, data.lname, data.email, hash, data.follow_coin]
     ).then(function(qres){
-      console.log('qres:' + qres);
       var userId = qres.currval;
       var coins = data.follow_coin;
       var query = coins.map(function(coin){
@@ -113,8 +101,6 @@ app.post('/signup', function(req, res){
             [coin, userId])
           );
       }).join('');
-      console.log('query:');
-      console.log(query);
       db.none(query)
         .then(function(){
             res.redirect('/login');

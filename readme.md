@@ -1,31 +1,41 @@
-## Synopsis
+# Altcoin Tracker
 
-At the top of the file there should be a short introduction and/ or overview that explains **what** the project is. This description should match descriptions added for package managers (Gemspec, package.json, etc.)
+Altcoin is a Javascript powered, offline-storange, and login enabled alternative coin and bitcoin tracker and efficiency tool. 
 
-## Code Example
+##### How to use:
+  - Once you get to the homepage you will be able to search the price, trade volume, and price change for 10+ of the most in-demand digital currencies.
+  - You will also have the option for creating an account, during the signup process you will be prompted to choose the digital currencies that you want to follow.
+  - Now your homepage will populate with information on all of your chosen alt coins. 
 
-Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
 
-## Motivation
+##### You can also:
+  - Set alerts to notify you when a coin stock changes to the price you set --Coming Soon
+  - Change the coin stocks that you follow
+  - Easily access news on the coins that you follow. --Coming Soon
+  - 
+ 
+####Quick Bitcoin Description
+> Maybe a quote from the creator of bitcoin/other altcoins? 
+> or influencers in bitcoin technology?
+> This quote should serve a reason why this tracker is a need. 
 
-A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
+####Tip on how this software could help you become a altcoin users
+~This text you see here is *actually* written in Markdown! To get a feel for Markdown's syntax, type some text into the left window and watch the results in the right.~
+        
+        ### Tech
 
-## Installation
-
-Provide code examples and explanations of how to get the project.
-
-## API Reference
-
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
-
-## Tests
-
-Describe and show how to run the tests with code examples.
-
-## Contributors
-
-Let people know how they can dive into the project, include important links to things like issue trackers, irc, twitter accounts if applicable.
-
-## License
-
-A short snippet describing the license (MIT, Apache, etc.)
+Altcoin Tracker uses a number of open source projects to function properly:
+- [Express] - node.js network app framework
+- [Pg-promise] - Handles callbacks and promises for Postgress Databases.
+- [Mustache-express] - Makes express compatiable with Mustache.
+- [Body-parser] - Parses through Database data and displays desired data through req.body
+- [Express-session] - middleware that lets us have a session on express 
+- [Bcryptjs] - password hashing module written in pure javascript  
+- [Method-override] - This module allows us to use HTTP verbs like DELETE & PUT in places where the client doesn’t support it.
+- [JQuery] - DOM manipulation, API calls, & CSS animations. 
+Ajax this is part of the JQuery library and is used to make API calls. 
+Javascript is the primary language I used to write this program. 
+- [D3.js] - Graph to come  
+- [materialize] - ui boilerplate
+- [node.js] - evented I/O for the backend 
+- 
