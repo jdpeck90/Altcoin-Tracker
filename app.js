@@ -25,7 +25,7 @@ app.use(bodyParser.json()); //body parser
 
 /////////------INITIALIZE SESSION------/////////
 app.use(session({
-  secret: 'theTruthIsOutThere51',
+  secret: 'secretsession',
   resave: false,
   saveUninitialized: true,
   cookie: { secure: false }
