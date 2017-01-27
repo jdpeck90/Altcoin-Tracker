@@ -204,7 +204,6 @@ app.get("/alerts/:id", function(req,res){
 
 app.post("/alerts/:id", function(req,res){
   var userID = req.session.user
-  console.log(userID.id,'userID')
   var notifications = req.body
   console.log(notifications)
  db.none('INSERT INTO notifications (base, target, method, user_id) VALUES ($1, $2, $3, $4);',

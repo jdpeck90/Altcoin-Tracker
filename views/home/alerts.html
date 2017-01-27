@@ -37,11 +37,28 @@
                     <div class="input-field col s7">
                         <select name="base" class="alert">
                           <option name="base" value="" disabled selected>Choose your base</option>
-                            <option name="base" value="Bitcoin">Bitcoin(BTC)</option>
-                            <option name="base" value="Litcoin">Litecoin(LTC)</option>
-                            <option name="base" value="Dogecoin">Dogecoin(DOGE)</option>
+      <option name="base" value="Bitcoin">Bitcoin(BTC)</option>
+      <option name="base" value="Bitcoin">Litecoin(LTC)</option>
+      <option name="base" value="Bitcoin">Dogecoin(DOGE)</option>
+      <option name="base" value="Bitcoin">Ethereum(ETH)</option>
+      <option name="base" value="Bitcoin">Dash(DASH)</option>
+      <option name="base" value="Bitcoin">Monero(XMR)</option>
+      <option name="base" value="Bitcoin">Neucoin (NEU)</option>
+      <option name="base" value="Bitcoin">Syscoin(SYS)</option>
+      <option name="base" value="Bitcoin">GoldCoin(GLD)</option>
+      <option name="base" value="Bitcoin">Zcash(ZEC)</option>
+      <option name="base" value="Bitcoin">Peercoin (PPC)</option>
+      <option name="base" value="Bitcoin">DigixDAO(DGD)</option>
+      <option name="base" value="Bitcoin">Jin(JIN)</option>
+      <option name="base" value="Bitcoin">Mastercoin(OMNI)</option>
+      <option name="base" value="Bitcoin">Augur(REP)</option>
+      <option name="base" value="Bitcoin">BitcoinDark(BTCD)</option>
+      <option name="base" value="Bitcoin">SuperNET(UNITY)</option>
+      <option name="base" value="Bitcoin">CounterParty(XCP)</option>
                         </select>
-                        <label>Digital Currency Select</label>
+                        <label>
+
+                        Digital Currency Select</label>
                     </div>
                     <div class="input-field col s7">
                         <div class="col-lg-10">
@@ -73,7 +90,7 @@
               <ul id="notifcationList">
                 <li class="alert-notes alert-number">Notification Number:{{id}}</li>
                 <li class="alert-notes alert-currency">Digital Currency:{{base}}</li>
-                <li class="alert-notes alert-target">Target Price:${{target}}</li>
+                <li class="alert-notes alert-target" target-data="{{base}}">Target Price:${{target}}</li>
                 <li class="alert-notes alert-method">Method of Notification:{{method}}</li>
                 </ul>
               {{/.}}
