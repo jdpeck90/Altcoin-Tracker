@@ -61,7 +61,7 @@ app.get("/", function(req,res){
       "follow_coin": follow_coin,
       "id": id
     }
-
+    console.log(data,'log in data')
     res.render('home/index', data);
 })
 
@@ -93,7 +93,7 @@ app.post('/signup', function(req, res){
       "INSERT INTO users (fname, lname, email, password_digest, follow_coin) VALUES ($1, $2, $3, $4, $5); SELECT currval('users_id_seq')",
       [data.fname, data.lname, data.email, hash, data.follow_coin]
     ).then(function(qres){
-      var userId = qres.currval;
+       userId = qres.currval;
       var coins = data.follow_coin;
       var query = coins.map(function(coin){
         return(
@@ -121,6 +121,25 @@ app.post('/signup', function(req, res){
 
 app.get('/login',function(req,res){
   res.render('signup/login')
+  var logged_in, email, fname, lname, follow_coin, id;
+
+  if(req.session.user){
+      logged_in = true;
+      email = req.session.user.email;
+      fname = req.session.user.fname;
+      lname = req.session.user.lname;
+      follow_coin = req.session.user.follow_coin;
+      id = req.session.user.id;
+  }
+
+    var data = {
+      "logged_in": logged_in,
+      "email": email,
+      "fname": fname,
+      "lname": lname,
+      "follow_coin": follow_coin,
+      "id": id
+    }
 })
 
 app.post('/login', function(req, res){
@@ -164,6 +183,7 @@ app.put('/dashboard/:id',function(req, res){
 app.delete('/dashboard/:id',function(req, res){
 
   var id = req.params.id
+
   console.log(id,'id')
   db.none("DELETE FROM users WHERE id=$1", [req.params.id])
   .then(function(){
@@ -171,3 +191,25 @@ app.delete('/dashboard/:id',function(req, res){
   })
 
 });
+app.get("/alerts/:id", function(req,res){
+    db.any('SELECT * FROM notifications WHERE user_id = $1',[req.params.id])
+  .then(function(data){
+    var userData = {
+      notifications: data
+    }
+    console.log(userData,'userData')
+    res.render('home/alerts',userData);
+  });
+})
+
+app.post("/alerts/:id", function(req,res){
+  var userID = req.session.user
+  console.log(userID.id,'userID')
+  var notifications = req.body
+  console.log(notifications)
+ db.none('INSERT INTO notifications (base, target, method, user_id) VALUES ($1, $2, $3, $4);',
+  [notifications.base, notifications.target, notifications.method, userID.id])
+        .then(function(){
+            res.redirect('/');
+        })
+  })

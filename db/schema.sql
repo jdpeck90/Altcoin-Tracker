@@ -1,5 +1,6 @@
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS coins;
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS coins CASCADE;
+DROP TABLE IF EXISTS notifications CASCADE;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
@@ -16,3 +17,11 @@ CREATE TABLE coins (
   name VARCHAR (225),
   user_id INTEGER REFERENCES users(id)
   );
+
+CREATE TABLE notifications (
+  id SERIAL PRIMARY KEY,
+  base VARCHAR (225),
+  target VARCHAR (225),
+  method VARCHAR (225),
+  user_id INTEGER REFERENCES users(id)
+);

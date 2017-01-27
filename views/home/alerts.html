@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>AltCoin Tracker</title>
+    <script src="/scripts/jquery.js"></script>
+    <script src="/scripts/main.js"></script>
+    <!-- Compiled and minified CSS -->
+    <!-- My CSS Page -->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/materialize.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+<script type='text/javascript' src='http://rawgit.com/fzondlo/jquery-columns/master/jquery-columns-plugin.js'></script>
+    </head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">AltCoin Tracker</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <!--   <li><a href="#" class="navlist">Alerts</a></li>
+      <li><a href="/exchanges" class="navlist">Exchanges</a></li> -->
+                    <li><a href="/login" class="navlist">Log In</a></li>
+                    <li><a href="/signup" class="navlist">Sign Up</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="row">
+        <div class="left col s6">
+            <form method="POST" action="post">
+                <fieldset class="not-form">
+                    <div class="input-field col s7">
+                        <select name="base" class="alert">
+                          <option name="base" value="" disabled selected>Choose your base</option>
+                            <option name="base" value="Bitcoin">Bitcoin(BTC)</option>
+                            <option name="base" value="Litcoin">Litecoin(LTC)</option>
+                            <option name="base" value="Dogecoin">Dogecoin(DOGE)</option>
+                        </select>
+                        <label>Digital Currency Select</label>
+                    </div>
+                    <div class="input-field col s7">
+                        <div class="col-lg-10">
+                            <input id="input_text" type="text" name="target">
+                            <label for="input_text" placeholder="$">Target Price( $ )</label>
+                        </div>
+                    </div>
+                    <div class="input-field col s7">
+                        <label>Method of Contact</label>
+                        <br />
+                        <input type="checkbox" class="filled-in" name="method" value="jdpeck90@gmail.com" id="method_email"/>
+                        <label for="method_email">Email: jdpeck90@gmail.com</label>
+                        <input type="checkbox" class="filled-in" name="method" value="503-989-6178" id="method_text"/>
+                        <label for="method_text">Phone: 503-989-6178</label>
+                    </div>
+                    <div class="input-field col s7">
+                        <div class="col-lg-10">
+            <button type="submit" class="waves-effect waves-light btn">ADD NOTIFICATIONS</button>
+
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+            <div class="right col s6">
+
+            {{#notifications}}
+              {{#.}}
+              <ul id="notifcationList">
+                <li class="alert-notes alert-number">Notification Number:{{id}}</li>
+                <li class="alert-notes alert-currency">Digital Currency:{{base}}</li>
+                <li class="alert-notes alert-target">Target Price:${{target}}</li>
+                <li class="alert-notes alert-method">Method of Notification:{{method}}</li>
+                </ul>
+              {{/.}}
+            {{/notifications}}
+
+            </div>
+    </div>
+
+</body>
+
+</html>

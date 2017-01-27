@@ -6,35 +6,34 @@
   <title>BitCoin Ticker</title>
   <script src="/scripts/jquery.js"></script>
 <script src="/scripts/main.js"></script>
-  <script src="https://d3js.org/d3.v3.min.js"></script>
-<!-- Compiled and minified CSS -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+<!-- Materialize CSS -->
+<link rel="stylesheet" type="text/css" href="/stylesheets/materialize.css">
 <!-- My CSS Page -->
 <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
 
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 </head>
 <body>
 
 
 {{^logged_in}}
 
-<header>
 <nav>
   <div class="nav-wrapper">
   <a href="#" class="brand-logo">AltCoin Tracker</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="/login" class="navlist">Log In</a></li>
+      <li>
+<a href="/login" class="navlist">Log In</a></li>
       <li><a href="/signup" class="navlist">Sign Up</a></li>
     </ul>
   </div>
 </nav>
-
-</header>
-
-
+<div>
+</div>
 <div class="displayGroup" data-coin="{{.}}">
 <a class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='altcoin-dropdown'>Choose an Altcoin!</a>
   <!-- Dropdown Structure -->
@@ -67,34 +66,36 @@
 
 
 <div id="bitTitle"></div>
-  <div id="priceTicker" class="altDisplay" data-coin="{{.}}">Price
-  <span class="categoryNote">(USD)</span></div>
-  <div id="volumeTicker" class="altDisplay">Volume
-  <span class="categoryNote">(Units Traded in 24hrs)</span></div>
-  <div id="changeTicker" class="altDisplay">Change
-  <span class="categoryNote">(in 24Hours)</span></div>
+  <div id="priceTicker" class="altDisplay" data-coin="{{.}}"><span class="categoryNote">Price
+  (USD)</span></div>
+  <div id="volumeTicker" class="altDisplay"><span class="categoryNote">(Volume
+  Units Traded in 24hrs)</span></div>
+  <div id="changeTicker" class="altDisplay"><span class="categoryNote">Change
+  (in 24Hours)</span></div>
 </div>
 
 {{/logged_in}}
 
 {{#logged_in}}
 <header>
+<h4 class="welcome">Welcome back, {{fname}}!</h4>
 <nav>
   <div class="nav-wrapper">
   <a href="/home" class="brand-logo">AltCoin Tracker</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
 <!--       <li><a href="#" class="navlist">Alerts</a></li>
  -->      <li><a href="/dashboard/{{id}}" class="navlist">My Dashboard</a></li>
-      <li><a href="/login" class="navlist">Log In</a></li>
-      <li><a href="/signup" class="navlist">Sign Up</a></li>
+ <li><a href="/alerts/{{id}}" class="navlist">Set Notifications</a></li>
       <li><a href="/logout/{{id}}" class="navlist">Log Out</a></li>
     </ul>
   </div>
 </nav>
 
 </header>
-
-<h1>Welcome to your account {{fname}} {{lname}}!</h1>
+  <div class="left col hide-on-small-only m3 l2">
+          <ul class="section table-of-contents altNav">
+          </ul>
+    </div>
 {{/logged_in}}
   <div id="bitChart"></div>
 
@@ -102,7 +103,7 @@
 {{#follow_coin}}
 
 
-<div class="displayGroup" data-coin="{{.}}">
+<div class="displayGroupLogged" data-coin="{{.}}">
 <div class="dropdown">
   <div class="dropdown-content">
     <a class="dropDownChoice" data-searchValue="btc-usd">Bitcoin(BTC)</a>
@@ -129,12 +130,12 @@
 
 
 <div id="bitTitle"></div>
-  <div id="priceTicker" class="altDisplay" data-coin="{{.}}">Price
-  <span class="categoryNote">(USD)</span></div>
-  <div id="volumeTicker" class="altDisplay">Volume
-  <span class="categoryNote">(Units traded in 24hrs)</span></div>
-  <div id="changeTicker" class="altDisplay">Change
-  <span class="categoryNote">(in 24Hours)</span></div>
+  <div id="priceTicker" class="altDisplay" data-coin="{{.}}"><span class="categoryNote">Price
+  (USD)</span></div>
+  <div id="volumeTicker" class="altDisplay"><span class="categoryNote">Volume
+  (Units traded in 24hrs)</span></div>
+  <div id="changeTicker" class="altDisplay"><span class="categoryNote">Change
+  (in 24Hours)</span></div>
 </div>
 {{/follow_coin}}
 {{/logged_in}}

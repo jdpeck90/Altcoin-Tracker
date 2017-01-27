@@ -1,19 +1,18 @@
 /*top nav*/
 
 .navlist{
-  font-size: 64px;
+  font-size: 32px;
 
 }
 
 nav ul li {
     transition: background-color .3s;
     float: left;
-    padding: 110px 55px 25px 25px;
 }
 
 a.brand-logo{
-    font-size: 8.1rem;
-    padding: 110px 0px 40px 80px;
+   font-size: 32px;
+    padding: 10px 0px 4px 8px;
 }
 
 
@@ -33,7 +32,6 @@ body{
   }*/
 
 nav{
-    height: 300px;
     background-color: #66f;
 }
 
@@ -54,7 +52,9 @@ nav{
 }
 
 .categoryNote {
-  font-size: 62px;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
 }
 
 .follow-coins {
@@ -62,10 +62,10 @@ nav{
   float: left;
   color:red;
 }
-
-li{
-  display: inline;
+#bitTitle h2 {
+  text-align: center;
 }
+
 .signup-left {
     margin-top: 250px;
     float: left;
@@ -86,9 +86,8 @@ li{
 }
 
 .btn-create {
-  padding: 45px 470px 105px 470px;
-   margin: 40px 0 20px 0;
-   font-size:
+    padding: 10px 170px 40px 170px;
+    margin: 20px 0 0px 0;
 }
 .input-coins{
     font-size: 70px;
@@ -116,17 +115,28 @@ input[type=checkbox] {
     padding: 5px;
 }
 .altDisplay{
-  height: 400px;
-  width: 1000px;
-  color: #66f;
-  padding: 40px 5px 5px 5px;
-  margin: 500px 5px 10px 130px;
-  display: inline-block;
-  text-align: center;
-  font-size: 80px;
-  border-radius: 80px;
-  background-color: lightgrey;
-  border: 7px solid grey;
+  height: 80px;
+    width: 190px;
+    color: #66f;
+    padding: 0px 10px 11px 10px;
+    margin: 0% 2% 0 3.25%;
+    display: inline-flex;
+    text-align: center;
+    font-size: 12px;
+    border-radius: 26px;
+    background-color: lightgrey;
+    border: 4px solid grey;
+}
+
+.alert-menu {
+  background-color: white;
+  border: 10px solid #66f;
+}
+
+.mySelect {
+  width: 500;
+  height: 500;
+  background-color: black;
 }
 
 #ticker p {
@@ -136,38 +146,47 @@ input[type=checkbox] {
 }
 
 .displayGroup h2 {
-      position:absolute;
-      text-align: center;
-      width: 62%;
-      font-size: 140px;
+    position: absolute;
+    text-align: center;
+    width: 52%;
+    font-size: 48px;
 }
 
 h1 {
-
       text-align: center;
-      width: 100%;
-      font-size: 140px;
+      font-size: 4rem;
 }
 
 .altDisplay h2 {
-      position:absolute;
-      text-align: center;
-      width: 16%;
-      font-size: 64px;
-      margin-top: 70px;
-      margin-left: 60px;
+        position: absolute;
+    width: 14%;
+    font-size: 18px;
+    margin-top: 55px;
 
 }
 
-header{
+ul#notifcationList {
+    width: 600px;
+    height: 200px;
+    border: 6px solid #66f;
+    background-color: white;
+    margin-top: 0px;
+
+}
+.row{
+      margin-top: 1%;
+}
+
+.alert-notes {
+  color: grey;
   width: 100%;
-  height: 300px;
-  background-color: #66f;
+  font-size: 1.25em;
+  text-align: center;
+  margin-top: 3%;
 }
-
 .displayGroup {
-  width: 3600px;
-  height: 1450px;
+  width: 1024px;
+  height: 700px;
   background-color: white;
   margin: 0 auto 40px auto;
   border-right: 20px solid #66f;
@@ -175,22 +194,86 @@ header{
   border-bottom: 20px solid #66f;
 }
 
+.displayGroupLogged {
+   width: 812px;
+    height: 350px;
+    background-color: white;
+    margin: 2% auto 40px 35%;
+    border: 20px solid #66f;
+}
+.cnPrice {
+  margin-left: 30%;
+}
+
+.cnVolume {
+  margin-left: 9%;
+}
+
+.cnChange {
+  margin-left: 20%;
+}
 .formGroup {
       width: 500px;
 
 }
 
+.welcome {
+  color: white;
+    display: inline-block;
+    margin: .85% 0 0 20%;
+    padding-top: 0%;
+    position: absolute;
+    font-size: 2rem;
+}
+
+ul#navMobile {
+  position: absolute;
+    top: 15%;
+    right: 2%;
+}
+
 /*dropdown button*/
 a.dropdown-button.btn {
-    padding: 50px 145px 80px 145px;
+  padding: 5px 14px 40px 14px;
   }
+.altNav {
+    background-color: #66f;
+    width: 15%;
+    position: absolute;
+    border-radius: 13%;
+    padding-bottom: 1.5%;
+}
+.altNav li {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    margin-left: 30px;
+    color: white;
+}
 
 
-
+.table-of-contents {
+  margin-left: 9%;
+  font-size: 40px;
+}
 /*Sign Up HTML Page*/
 
 .container{
     background-color: white;
     border: 10px solid #66f;
     padding: 50px;
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+li {
+  list-style-type: disc;
+}
+
+
+/*///////----Notification Page ----------/////////*/
+.not-form {
+    background-color: white;
+    border: 7px solid #66f;
   }

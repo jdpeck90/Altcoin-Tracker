@@ -2,6 +2,7 @@ $(document).ready(function() {
 $(function(){
 console.log('connected')
 
+
 /////////------GET DATA------/////////
 
 function makeCallLoggedOut(searchValue){
@@ -92,9 +93,15 @@ function displayStatusIn(rawData) {
     var $displayGroup = $('div#bitTitle')[tickerCount]
 
     var $h2Base = $('<h2>'+base+'</h2>')
+    $($h2Base).attr('id',base)
+
     var $displayPrice = $('<h2>'+'$'+price+'</h2>')
     var $displayVolume = $('<h2>'+volume+'</h2>')
     var $displayChange = $('<h2>'+change+'%'+'</h2>')
+
+    var $altCoinMenu = $('ul.altNav')
+    var $coinLi = $('<li><i class="material-icons">label_outline</i><a href="#'+base+'">'+base+'</a></li>');
+    $($altCoinMenu).append($coinLi)
 
 
     $($displayGroup).append($h2Base)
@@ -134,6 +141,8 @@ function displayStatusOut(rawData) {
     var $displayGroup = $('div#bitTitle')[0]
 
     var $h2Base = $('<h2>'+base+'</h2>')
+    $($h2Base).attr('id',base)
+    console.log($h2Base,'h2base')
     var $displayPrice = $('<h2>'+'$'+price+'</h2>')
     console.log($displayPrice,'displayPrice')
     var $displayVolume = $('<h2>'+volume+'</h2>')
@@ -147,6 +156,10 @@ function displayStatusOut(rawData) {
 
     tickerCount++;
 }
+
+$(document).ready(function(){
+    $('.scrollspy').scrollSpy();
+  });
 
 /////////------CLICK LISTENERS------/////////
 $( ".dropDownChoice" ).click(function(d) {
@@ -169,6 +182,6 @@ $( ".dropDownChoice" ).click(function(d) {
   );
 
 
-
+$('select.alert').material_select();
 })
 })
