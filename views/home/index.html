@@ -37,7 +37,7 @@
 <div class="displayGroup" data-coin="{{.}}">
 <a class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='altcoin-dropdown'>Choose an Altcoin!</a>
   <!-- Dropdown Structure -->
-  <ul id='altcoin-dropdown' class='dropdown-content'>
+  <ul id='altcoin-dropdown' class='dropdown-content alt-dropdown'>
     <li><a class="dropDownChoice" data-searchValue="btc-usd">Bitcoin(BTC)</a></li>
     <li><a class="dropDownChoice" data-searchValue="ltc-usd">Litecoin(LTC)</a></li>
     <li><a class="dropDownChoice" data-searchValue="doge-usd">Dogecoin(DOGE)</a></li>
@@ -83,9 +83,8 @@
   <div class="nav-wrapper">
   <a href="/home" class="brand-logo">AltCoin Tracker</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-<!--       <li><a href="#" class="navlist">Alerts</a></li>
- -->      <li><a href="/dashboard/{{id}}" class="navlist">My Dashboard</a></li>
- <li><a href="/alerts/{{id}}" class="navlist">Set Notifications</a></li>
+       <li><a href="/dashboard/{{id}}" class="navlist">My Dashboard</a></li>
+       <li><a href="/alerts/{{id}}" class="navlist">Set Notifications</a></li>
       <li><a href="/logout/{{id}}" class="navlist">Log Out</a></li>
     </ul>
   </div>
@@ -105,7 +104,7 @@
 
 <div class="displayGroupLogged" data-coin="{{.}}">
 <div class="dropdown">
-  <div class="dropdown-content">
+  <div class="dropdown-content alt-dropdown">
     <a class="dropDownChoice" data-searchValue="btc-usd">Bitcoin(BTC)</a>
     <a class="dropDownChoice" data-searchValue="ltc-usd">Litecoin(LTC)</a>
     <a class="dropDownChoice" data-searchValue="doge-usd">Dogecoin(DOGE)</a>
@@ -130,11 +129,11 @@
 
 
 <div id="bitTitle"></div>
-  <div id="priceTicker" class="altDisplay" data-coin="{{.}}"><span class="categoryNote">Price
+  <div id="priceTicker" class="altDisplay altHeight" data-coin="{{.}}"><span class="categoryNote">Price
   (USD)</span></div>
-  <div id="volumeTicker" class="altDisplay"><span class="categoryNote">Volume
+  <div id="volumeTicker" class="altDisplay altHeight"><span class="categoryNote">Volume
   (Units traded in 24hrs)</span></div>
-  <div id="changeTicker" class="altDisplay"><span class="categoryNote">Change
+  <div id="changeTicker" class="altDisplay altHeight"><span class="categoryNote">Change
   (in 24Hours)</span></div>
 </div>
 {{/follow_coin}}

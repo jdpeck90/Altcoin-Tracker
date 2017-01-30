@@ -67,6 +67,7 @@ var deleteUser = function(){
 /////////------DISPLAY DATA------/////////
 var tickerCount = 0;
 function displayStatusIn(rawData) {
+  console.log(rawData,'rawData')
     var base = rawData.base;
     var target = rawData.target;
     var price = rawData.price;
@@ -143,10 +144,10 @@ function displayStatusOut(rawData) {
     var $h2Base = $('<h2>'+base+'</h2>')
     $($h2Base).attr('id',base)
     console.log($h2Base,'h2base')
-    var $displayPrice = $('<h2>'+'$'+price+'</h2>')
+    var $displayPrice = $('<h2 style="margin-top:14%;">'+'$'+price+'</h2>')
     console.log($displayPrice,'displayPrice')
-    var $displayVolume = $('<h2>'+volume+'</h2>')
-    var $displayChange = $('<h2>'+change+'%'+'</h2>')
+    var $displayVolume = $('<h2 style="margin-top:14%;">'+volume+'</h2>')
+    var $displayChange = $('<h2 style="margin-top:14%;">'+change+'%'+'</h2>')
 
 
     $($displayGroup).append($h2Base)

@@ -11,8 +11,9 @@ nav ul li {
 }
 
 a.brand-logo{
-   font-size: 32px;
+   font-size: 34px;
     padding: 10px 0px 4px 8px;
+    margin: 0 0 0 1%;
 }
 
 
@@ -55,6 +56,7 @@ nav{
   width: 100%;
   text-align: center;
   font-size: 12px;
+  margin-top: 8%;
 }
 
 .follow-coins {
@@ -62,8 +64,12 @@ nav{
   float: left;
   color:red;
 }
+#bitTitle {
+  margin-top: 5%;
+}
 #bitTitle h2 {
   text-align: center;
+  margin-top: 0;
 }
 
 .signup-left {
@@ -114,12 +120,18 @@ input[type=checkbox] {
     -webkit-transform: scale(4);
     padding: 5px;
 }
+
+.alt-dropdown {
+    padding: 5px 14px 5px 14px;
+    margin: 0 0 0 1%;
+
+}
 .altDisplay{
   height: 80px;
     width: 190px;
     color: #66f;
     padding: 0px 10px 11px 10px;
-    margin: 0% 2% 0 3.25%;
+    margin: 11% 2% 0 3.5%;
     display: inline-flex;
     text-align: center;
     font-size: 12px;
@@ -146,10 +158,15 @@ input[type=checkbox] {
 }
 
 .displayGroup h2 {
+text-align: center;
+    width: 56%;
     position: absolute;
-    text-align: center;
-    width: 52%;
     font-size: 48px;
+    top: 17%;
+}
+
+.categoryNote h2 {
+  margin-top: 10%;
 }
 
 h1 {
@@ -161,8 +178,12 @@ h1 {
         position: absolute;
     width: 14%;
     font-size: 18px;
-    margin-top: 55px;
+    margin-top: 4%;
+}
 
+.altHeight {
+  margin-top: 6%;
+  margin-bottom: 0;
 }
 
 ul#notifcationList {
@@ -185,7 +206,7 @@ ul#notifcationList {
   margin-top: 3%;
 }
 .displayGroup {
-  width: 1024px;
+  width: 56%;
   height: 700px;
   background-color: white;
   margin: 0 auto 40px auto;
@@ -193,7 +214,17 @@ ul#notifcationList {
   border-left: 20px solid #66f;
   border-bottom: 20px solid #66f;
 }
-
+.sendbtn {
+      width: 145px;
+    height: 28px;
+    margin: 0;
+    font-size: 11px;
+    margin-top: 2%;
+    display: inline-block;
+}
+.sendcol {
+  width: 100%;
+}
 .displayGroupLogged {
    width: 812px;
     height: 350px;
@@ -220,7 +251,7 @@ ul#notifcationList {
 .welcome {
   color: white;
     display: inline-block;
-    margin: .85% 0 0 20%;
+    margin: .85% 0 0 25%;
     padding-top: 0%;
     position: absolute;
     font-size: 2rem;
@@ -234,8 +265,10 @@ ul#navMobile {
 
 /*dropdown button*/
 a.dropdown-button.btn {
-  padding: 5px 14px 40px 14px;
+  padding: 1% 2% 1% 2%;
+  margin: 1% 2% 1% 2%;
   }
+
 .altNav {
     background-color: #66f;
     width: 15%;
@@ -271,7 +304,7 @@ li {
   list-style-type: disc;
 }
 
-
+.
 /*///////----Notification Page ----------/////////*/
 .not-form {
     background-color: white;
