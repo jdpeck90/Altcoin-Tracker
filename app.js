@@ -8,23 +8,9 @@ const session = require('express-session');
 const bcrypt = require('bcryptjs');
 const methodOverride = require('method-override');
 
-
-var pg = require('pg');
-var db = pgp(process.env.DATABASE_URL || 'postgres://silverRectangle@localhost:5432/bitcoin_users');
-
-pg.defaults.ssl = true;
-pg.connect(db, function(err, client) {
-  if (err) throw err;
-  console.log('Connected to postgres! Getting schemas...');
-
-  client
-    .query('SELECT table_schema,table_name FROM information_schema.tables;')
-    .on('row', function(row) {
-      console.log(JSON.stringify(row));
-    });
-});
 /////////------DATABASE------/////////
 const pgp = require('pg-promise')();
+var db = pgp(process.env.DATABASE_URL || 'postgres://silverRectangle@localhost:5432/bitcoin_users');
 
 
 /////////-----MUSTACHE/METHOD OVERRIDE/BODY PARSER------/////////
@@ -46,12 +32,12 @@ app.use(session({
 }))
 
 /////////------START PORT------/////////
-const PORT = process.env.DATABASE_URL || 3000;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, function(){
   console.log('alive on 3k, yo.');
 });
-PORT.connect();
+
 
 
 /////////------GET POST PUT DELETER------/////////
